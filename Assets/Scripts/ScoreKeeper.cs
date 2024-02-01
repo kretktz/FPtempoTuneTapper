@@ -33,4 +33,9 @@ public class ScoreKeeper : MonoBehaviour
         score += 3;
         scoreText.text = "SCORE: " + score.ToString();
     }
+
+    public string FetchScore()
+    {
+        return score.ToString();
+    }
 }
