@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Runtime.InteropServices;
 using FMODUnity;
+using FMOD.Studio;
 
 public class MusicManager : MonoBehaviour
 {
@@ -42,7 +43,6 @@ public class MusicManager : MonoBehaviour
         public FMOD.StringWrapper lastMarker = new FMOD.StringWrapper();
     }
 
-
     private void Awake()
     {
         instance = this;
@@ -51,7 +51,6 @@ public class MusicManager : MonoBehaviour
         musicInstance = RuntimeManager.CreateInstance(music);
         
         musicInstance.start();
-        
     }
 
     private void Start()
@@ -97,6 +96,7 @@ public class MusicManager : MonoBehaviour
                 BeatUpdated();
             }
         }
+
     }
     void OnDestroy()
     {
