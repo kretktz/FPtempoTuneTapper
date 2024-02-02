@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ObjectBehaviour : MonoBehaviour
 {
+    // animation variables
     public float maxSize;
     public float scaleFactor;
     public float waitTime;
@@ -17,6 +18,7 @@ public class ObjectBehaviour : MonoBehaviour
 
     private bool waitingForString;
 
+    //string variables required for marker detection
     private readonly string spawn = "spawn";
     private readonly string hit = "good";
     private readonly string perfect = "perfect";
@@ -27,7 +29,7 @@ public class ObjectBehaviour : MonoBehaviour
 
     private void Awake()
     {
-        waitingForString = true;
+        waitingForString = true; //wait for start string from FMOD
 
         //subscribe to music manager
         MusicManager.BeatUpdated += ObjectAnimation;
@@ -43,6 +45,7 @@ public class ObjectBehaviour : MonoBehaviour
 
     void Start()
     {
+        //fetch and set object properties
         material = gameObject.GetComponent<Renderer>().material;
         material.SetColor("_EmissionColor", Color.magenta);
     }
@@ -67,15 +70,17 @@ public class ObjectBehaviour : MonoBehaviour
 
     IEnumerator ScaleUp()
     {
-        float timer = 0;
+        float timer = 0; //reset timer
 
         while (true)
         {
             while(maxSize > transform.localScale.x)
             {
+                //scale the object over time
                 timer += Time.deltaTime;
                 transform.localScale += scaleFactor * Time.deltaTime * new Vector3(100, 0, 100);
 
+                //change the object colour once it reaches cerain size
                 if (transform.localScale.x > 80)
                 {
                     material.SetColor("_EmissionColor", Color.red);
@@ -100,6 +105,7 @@ public class ObjectBehaviour : MonoBehaviour
         }
     }
 
+    //click or touch detection
     private void OnMouseDown()
     {
         if (localLastMarker.Contains(hit))
@@ -153,6 +159,7 @@ public class ObjectBehaviour : MonoBehaviour
         }
     }
 
+    //floating text animation
     void ShowFloatingText(string hitOrMiss)
     {
         var msg = Instantiate(FLoatingText, transform.position, Quaternion.Euler(new Vector3(90, 0, 0))); //account for top-down camera view

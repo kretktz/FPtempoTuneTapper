@@ -25,7 +25,7 @@ public class Spawner : MonoBehaviour
         
         MusicManager.MarkerUpdated += WaitForMarker;
 
-        instance = this;
+        instance = this; //instantiate the class
     }
 
     private void OnDestroy()
@@ -48,6 +48,7 @@ public class Spawner : MonoBehaviour
     {
         string lastMarker = MusicManager.instance.timelineInfo.lastMarker;
 
+        //spawn object only if it doesn't already exist
         if (!noteObjectExists && lastMarker.Contains(spawnerNumber))
         {
             SpawnObject();  

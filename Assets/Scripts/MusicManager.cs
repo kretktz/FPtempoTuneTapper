@@ -4,6 +4,9 @@ using System.Runtime.InteropServices;
 using FMODUnity;
 using FMOD.Studio;
 
+//the below code has been sourced from the official FMOD documentation
+//ref: https://www.fmod.com/docs/2.00/unity/examples-timeline-callbacks.html
+//minor modifications has been made to fit the project requirements
 public class MusicManager : MonoBehaviour
 {
     public static MusicManager instance;
@@ -28,6 +31,7 @@ public class MusicManager : MonoBehaviour
     public delegate void MarkerListenerDelegate();
     public static event MarkerListenerDelegate MarkerUpdated;
 
+    //variables keeping track of the playhead position in relation to events
     public static int lastBeat = 0;
     public static string lastMarkerString = null;
 
@@ -45,17 +49,16 @@ public class MusicManager : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        instance = this; //instantiate class
 
-        
         musicInstance = RuntimeManager.CreateInstance(music);
         
-        musicInstance.start();
+        musicInstance.start(); //start playback
     }
 
     private void Start()
     {
-        if (music != null)
+        if (music != null) //run only if banks are assigned
         {
             timelineInfo = new TimelineInfo();
             beatCallback = new FMOD.Studio.EVENT_CALLBACK(BeatEventCallback);
@@ -75,6 +78,8 @@ public class MusicManager : MonoBehaviour
 
     private void Update()
     {
+        //update beat position and marker
+
         musicInstance.getTimelinePosition(out timelineInfo.currentPosition);
 
         if(lastMarkerString != timelineInfo.lastMarker)
@@ -98,6 +103,8 @@ public class MusicManager : MonoBehaviour
         }
 
     }
+
+    //clear memory after quitting application
     void OnDestroy()
     {
         musicInstance.setUserData(IntPtr.Zero);
@@ -107,10 +114,10 @@ public class MusicManager : MonoBehaviour
     }
 
 
-    private void OnGUI()
-    {
-        GUILayout.Box($"Current Beat = {timelineInfo.currentBeat}, Last Marker = {(string)timelineInfo.lastMarker}");  
-    }
+    //private void OnGUI()
+    //{
+    //    GUILayout.Box($"Current Beat = {timelineInfo.currentBeat}, Last Marker = {(string)timelineInfo.lastMarker}");  
+    //}
 
 
     [AOT.MonoPInvokeCallback(typeof(FMOD.Studio.EVENT_CALLBACK))]

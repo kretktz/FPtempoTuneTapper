@@ -13,7 +13,7 @@ public class ScoreKeeper : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        instance = this; //instantiate the class
     }
 
     // Start is called before the first frame update
