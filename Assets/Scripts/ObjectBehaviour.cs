@@ -52,6 +52,7 @@ public class ObjectBehaviour : MonoBehaviour
 
     private void Update()
     {
+
         absoluteLastMarker = MusicManager.instance.timelineInfo.lastMarker;
 
         //update local marker only if it contains spawne number

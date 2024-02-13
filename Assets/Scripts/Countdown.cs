@@ -6,7 +6,11 @@ using UnityEngine.UI;
 public class Countdown : MonoBehaviour
 {
     public Text countdownText;
+    public Text stageText;
+
     private string countdownNumber;
+    private string stageNumber;
+
     private bool isVisible = false;
     private void Awake()
     {
@@ -39,12 +43,16 @@ public class Countdown : MonoBehaviour
     void Update()
     {
         countdownNumber = GetCountdown();
+        stageNumber = GetStage();
+
         if(isVisible)
         {
+            stageText.text = "STAGE " + stageNumber;
             countdownText.text = "GET READY" + "\n" + countdownNumber;
         }
         else
         {
+            stageText.text = "";
             countdownText.text = "";
         }
         
@@ -69,5 +77,26 @@ public class Countdown : MonoBehaviour
         }
 
         return cno;
+    }
+
+    string GetStage()
+    {
+        string lastMarker = MusicManager.instance.timelineInfo.lastMarker;
+        string sno = "";
+
+        if (lastMarker.Contains("Stage01"))
+        {
+            sno = "1";
+        }
+        if (lastMarker.Contains("Stage02"))
+        {
+            sno = "2";
+        }
+        if (lastMarker.Contains("Stage03"))
+        {
+            sno = "3";
+        }
+
+        return sno;
     }
 }
