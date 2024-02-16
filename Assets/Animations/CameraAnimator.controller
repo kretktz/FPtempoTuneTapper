@@ -134,7 +134,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CameraSpin
+  m_Name: AnchorAnimation
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -148,7 +148,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 1173bf340d6f2c2458a14c284b5d4ef6, type: 2}
+  m_Motion: {fileID: 7400000, guid: 1434d855cb46df64b81e7d69ed2ffa5c, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

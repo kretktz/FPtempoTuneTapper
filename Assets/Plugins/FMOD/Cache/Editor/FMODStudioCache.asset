@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: event:/LevelHard
   guid: 5d8eadaaa349dd43b25a81a3c04997d9
   Banks:
-  - {fileID: -8557018161143391198}
+  - {fileID: 2887253020091477336}
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
@@ -388,17 +388,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 7520919590031245382}
-  - {fileID: -8557018161143391198}
+  - {fileID: 2887253020091477336}
   EditorEvents:
   - {fileID: 4853317552354334649}
   - {fileID: -8828172724253780569}
   - {fileID: 1168435483011595978}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -8557018161143391198}
+  - {fileID: 2887253020091477336}
   StringsBanks:
   - {fileID: 7520919590031245382}
-  stringsBankWriteTime: 638434318578334162
+  stringsBankWriteTime: 638436969243523333
   cacheVersion: 3
 --- !u!114 &921482688150467271
 MonoBehaviour:
@@ -471,7 +471,7 @@ MonoBehaviour:
   Path: event:/prototypeMusic
   guid: 73b9e354c39bb24e9c1a2f6689d8bdb0
   Banks:
-  - {fileID: -8557018161143391198}
+  - {fileID: 2887253020091477336}
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
@@ -599,6 +599,24 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 67370
+--- !u!114 &2887253020091477336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Mobile/Master.bank
+  SubDir: 
+  lastModified: 638436969243503314
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &3218684434243698915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -673,7 +691,7 @@ MonoBehaviour:
   Path: event:/allegro
   guid: 423b4936cc1a3d449ae42e27dbe20f4e
   Banks:
-  - {fileID: -8557018161143391198}
+  - {fileID: 2887253020091477336}
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
@@ -825,7 +843,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/FMODBanks/Mobile/Master.strings.bank
   SubDir: 
-  lastModified: 638434318578334162
+  lastModified: 638436969243523333
   LoadResult: 0
   FileSizes:
   - Name: 

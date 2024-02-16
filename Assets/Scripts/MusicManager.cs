@@ -52,6 +52,7 @@ public class MusicManager : MonoBehaviour
         instance = this; //instantiate class
 
         musicInstance = RuntimeManager.CreateInstance(music);
+        //musicInstance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(new Vector3(0, 0, 0)));
         
         musicInstance.start(); //start playback
     }
