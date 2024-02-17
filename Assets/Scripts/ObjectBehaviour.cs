@@ -113,7 +113,6 @@ public class ObjectBehaviour : MonoBehaviour
         {
             //Display Text
             ShowFloatingText("Good!!");
-            //Debug.Log("Good Hit");
             Destroy(gameObject);
             Spawner.instance.noteObjectExists = false;
             ScoreKeeper.instance.AddGoodPoint();
@@ -122,7 +121,6 @@ public class ObjectBehaviour : MonoBehaviour
         else if (localLastMarker.Contains(perfect))
         {
             ShowFloatingText("PERFECTO !!");
-            //Debug.Log("Perfect Hit");
             Destroy(gameObject);
             GameObject explosion = Instantiate(destroyAnimation, transform.position, transform.rotation);
             Destroy(explosion, 0.5f);
@@ -130,20 +128,11 @@ public class ObjectBehaviour : MonoBehaviour
             ScoreKeeper.instance.AddPerfectPoint();
         }
 
-        //else if (localLastMarker.Contains(spawn))
-        //{
-        //    ShowFloatingText("MISS !!");
-        //    Destroy(gameObject);
-        //    Spawner.instance.noteObjectExists = false;
-        //    Debug.Log("Miss");
-        //}
-
         else
         {
             ShowFloatingText("MISS !!");
             Destroy(gameObject);
             Spawner.instance.noteObjectExists = false;
-            //Debug.Log("Miss");
         }
     }
 
