@@ -16,11 +16,11 @@ public class ProgressBar : MonoBehaviour
 
     private void Start()
     {
-        speed = ((duration / 45000f) / 60f);
+        speed = ((duration / 9000f) / 60f);
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         fill = fill + speed;
         fillImage.fillAmount = fill;
